@@ -24,7 +24,7 @@ if (isset($_POST)){
 	$city = $mysqli->real_escape_string($_POST['city']);
 	$country = $mysqli->real_escape_string($_POST['country']);
 
-	$query_string = "INSERT INTO connection ('name', 'email', 'phone', 'type', 'contact', 'city', 'country') VALUES ('$name','$email','$phone','$type','$contact','$city','$country')";
+	$query_string = "INSERT INTO connection (name, email, phone, type, contact, city, country) VALUES ('$name','$email','$phone','$type','$contact','$city','$country')";
 
 	$query = $mysqli->query($query_string);
 
