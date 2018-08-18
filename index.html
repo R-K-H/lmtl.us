@@ -34,8 +34,8 @@
 					<img src="images/slide01.jpg" alt="" />
 					<div class="inner">
 						<header>
-							<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
-							<h2>Hielo</h2>
+							<p>Service is the key to <a href="https://lmtl.us">inspiration</a></p>
+							<h2>Lmtl.us</h2>
 						</header>
 					</div>
 				</article>
@@ -43,8 +43,8 @@
 					<img src="images/slide02.jpg" alt="" />
 					<div class="inner">
 						<header>
-							<p>Lorem ipsum dolor sit amet nullam feugiat</p>
-							<h2>Magna etiam</h2>
+							<p>You are unstoppable</p>
+							<h2>Power</h2>
 						</header>
 					</div>
 				</article>
@@ -52,31 +52,52 @@
 					<img src="images/slide03.jpg"  alt="" />
 					<div class="inner">
 						<header>
-							<p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
-							<h2>Tempus dolor</h2>
+							<p>State is everything</p>
+							<h2>Certantity</h2>
 						</header>
 					</div>
 				</article>
-				<article>
-					<img src="images/slide04.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
-							<h2>Etiam feugiat</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide05.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
-							<h2>Lorem adipiscing</h2>
-						</header>
-					</div>
-				</article>
+				
 			</section>
-
+			<section id="pre-one" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+						<div>
+							<div class="4u 12u$(small)">
+											<input type="radio" id="priority-low" name="priority" checked>
+											<label for="priority-low">Low Priority</label>
+										</div>
+										<div class="4u 12u$(small)">
+											<input type="radio" id="priority-normal" name="priority">
+											<label for="priority-normal">Normal Priority</label>
+										</div>
+										<div class="4u$ 12u$(small)">
+											<input type="radio" id="priority-high" name="priority">
+											<label for="priority-high">High Priority</label>
+										</div>
+										<!-- Break -->
+										<div class="6u 12u$(small)">
+											<input type="checkbox" id="copy" name="copy">
+											<label for="copy">Email me a copy of this message</label>
+										</div>
+										<div class="6u$ 12u$(small)">
+											<input type="checkbox" id="human" name="human" checked>
+											<label for="human">I am a human and not a robot</label>
+										</div>
+										<!-- Break -->
+										<div class="12u$">
+											<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+										</div>
+										<!-- Break -->
+										<div class="12u$">
+											<ul class="actions">
+												<li><input type="submit" value="Send Message" /></li>
+												<li><input type="reset" value="Reset" class="alt" /></li>
+											</ul>
+										</div>
+						</div>
+				</div>
+			</section>
 		<!-- One -->
 			<section id="one" class="wrapper style2">
 				<div class="inner">
@@ -139,27 +160,8 @@
 						<p class="special">Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
 						<h2>Morbi maximus justo</h2>
 					</header>
-					<div class="gallery">
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic01.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic02.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic03.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic04.jpg" alt="" /></a>
-							</div>
-						</div>
+					<div class="instafeed">
+						
 					</div>
 				</div>
 			</section>
@@ -176,7 +178,7 @@
 					</ul>
 				</div>
 				<div class="copyright">
-					&copy; Untitled. All rights reserved.
+					&copy; Limitless.
 				</div>
 			</footer>
 
@@ -184,8 +186,18 @@
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/instafeed.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script type="text/javascript">
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'businessmastery',
+        clientId: '28389ff04e594e1a9f2dd76da1238cd1',
+        template: '<div><div class="image fit"><a href="{{link}}"><img src="{{image}}" alt="" /></a></div></div>'
+    });
+    feed.run();
+</script>
 
 	</body>
 </html>
