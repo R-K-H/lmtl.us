@@ -26,9 +26,13 @@ if (isset($_POST)){
 
 
 	if($mysqli->query("INSERT INTO connection ('name', 'email', 'phone', 'type', 'contact', 'city', 'country') VALUES ('$name','$email','$phone','$type','$contact','$city','$country')")){
-
+		$arr = array('success' => true);
+	} else {
+		$arr = array('success' => false);
 	}
 
+	echo json_encode($arr);
+	
 	$mysqli->close();
 
 }

@@ -62,7 +62,8 @@
 			<section id="pre-one" class="wrapper style2">
 				<div class="inner">
 						<div>
-							<form action="register.php" method="post" onsubmit="AJAXSubmit(this); return false;">
+							<div id="form-message" style="display: none;"><p>Thank you for submitting</p></div>
+							<form id="form-id" action="register.php" method="post" onsubmit="AJAXSubmit(this); return false;">
 								<div class="row uniform">
 									<div class="4u 12u$(xsmall)">
 										<input type="text" name="name" id="name" value="" placeholder="Name" />
@@ -487,6 +488,8 @@ This is 5 FULL days of heavy lifting and learning and I am so proud of every sin
 	function AJAXSubmit (oFormElement) {
 	  if (!oFormElement.action) { return; }
 	  var oReq = new XMLHttpRequest();
+	  $("#form-id").hide();
+      $("#form-message").show();
 	  oReq.onload = ajaxSuccess;
 	  if (oFormElement.method.toLowerCase() === "post") {
 	    oReq.open("post", oFormElement.action);
