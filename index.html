@@ -62,7 +62,7 @@
 			<section id="pre-one" class="wrapper style2">
 				<div class="inner">
 						<div>
-							<form method="post" action="#">
+							<form action="register.php" method="post" onsubmit="AJAXSubmit(this); return false;">
 								<div class="row uniform">
 									<div class="4u 12u$(xsmall)">
 										<input type="text" name="name" id="name" value="" placeholder="Name" />
@@ -456,10 +456,40 @@
     var feed = new Instafeed({
         get: 'tagged',
         tagName: 'businessmastery',
-        accessToken: '41161841.28389ff.5a66af377b6b4999892dfe3d72669796',
+        clientId: '28389ff04e594e1a9f2dd76da1238cd1',
         template: '<div><div class="image fit"><a href="{{link}}"><img src="{{image}}" alt="" /></a></div></div>'
     });
     feed.run();
+
+    function ajaxSuccess () {
+	  console.log(this.responseText);
+	}
+
+	function AJAXSubmit (oFormElement) {
+	  if (!oFormElement.action) { return; }
+	  var oReq = new XMLHttpRequest();
+	  oReq.onload = ajaxSuccess;
+	  if (oFormElement.method.toLowerCase() === "post") {
+	    oReq.open("post", oFormElement.action);
+	    oReq.send(new FormData(oFormElement));
+	  } else {
+	    var oField, sFieldType, nFile, sSearch = "";
+	    for (var nItem = 0; nItem < oFormElement.elements.length; nItem++) {
+	      oField = oFormElement.elements[nItem];
+	      if (!oField.hasAttribute("name")) { continue; }
+	      sFieldType = oField.nodeName.toUpperCase() === "INPUT" ?
+	          oField.getAttribute("type").toUpperCase() : "TEXT";
+	      if (sFieldType === "FILE") {
+	        for (nFile = 0; nFile < oField.files.length;
+	            sSearch += "&" + escape(oField.name) + "=" + escape(oField.files[nFile++].name));
+	      } else if ((sFieldType !== "RADIO" && sFieldType !== "CHECKBOX") || oField.checked) {
+	        sSearch += "&" + escape(oField.name) + "=" + escape(oField.value);
+	      }
+	    }
+	    oReq.open("get", oFormElement.action.replace(/(?:\?.*)?$/, sSearch.replace(/^&/, "?")), true);
+	    oReq.send(null);
+	  }
+	}
 </script>
 
 	</body>
