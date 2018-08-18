@@ -24,15 +24,18 @@ if (isset($_POST)){
 	$city = $mysqli->real_escape_string($_POST['city']);
 	$country = $mysqli->real_escape_string($_POST['country']);
 
+	$query_string = "INSERT INTO connection ('name', 'email', 'phone', 'type', 'contact', 'city', 'country') VALUES ('$name','$email','$phone','$type','$contact','$city','$country')";
 
-	if($mysqli->query("INSERT INTO connection ('name', 'email', 'phone', 'type', 'contact', 'city', 'country') VALUES ('$name','$email','$phone','$type','$contact','$city','$country')")){
+	$query = $mysqli->query($query_string);
+
+	if($query){
 		$arr = array('success' => true);
 	} else {
-		$arr = array('success' => false);
+		$arr = array('success' => false, 'message' => $mysqli->error);
 	}
 
 	echo json_encode($arr);
-	
+
 	$mysqli->close();
 
 }
