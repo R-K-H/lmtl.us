@@ -16,9 +16,19 @@ if (isset($_POST)){
 	if (!$mysqli) {
 	    exit;
 	}
-	$stmt = $mysqli->prepare("INSERT INTO connection ('name','email','phone','type','contact') VALUES (?,?,?,?,?)");
-	$stmt->bind_param("sssib", $_POST['name'], $_POST['email'], $_POST['phone'], $_POST['type'], $_POST['contact']);
-	$stmt->execute();
+	$name = $mysqli->real_escape_string($_POST['name']);
+	$email = $mysqli->real_escape_string($_POST['email']);
+	$phone = $mysqli->real_escape_string($_POST['phone']);
+	$type = $mysqli->real_escape_string($_POST['type']);
+	$contact = $mysqli->real_escape_string($_POST['contact']);
+	$city = $mysqli->real_escape_string($_POST['city']);
+	$country = $mysqli->real_escape_string($_POST['country']);
+
+
+	if($mysqli->query("INSERT INTO connection ('name', 'email', 'phone', 'type', 'contact', 'city', 'country') VALUES ('$name','$email','$phone','$type','$contact','$city','$country')")){
+
+	}
+
 	$stmt->close();
 
 }
