@@ -29,7 +29,7 @@ if (isset($_POST)){
 
 	}
 
-	$stmt->close();
+	$mysqli->close();
 
 }
 
